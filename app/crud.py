@@ -16,7 +16,7 @@ def create_url(db: Session, data: schemas.URLCreate) -> models.URL:
 
         is_active=True,
         created_at=datetime.utcnow(),
-        expires_at=datetime.utcnow() + timedelta(days=30),
+        expires_at=datetime.utcnow() + timedelta(days=1),
         visits=0,
     )
     db.add(db_url)
