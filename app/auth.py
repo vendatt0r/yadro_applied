@@ -1,11 +1,16 @@
 import os
+
+from dotenv import load_dotenv
 from fastapi import Depends, HTTPException, status
 from fastapi.security import HTTPBasic, HTTPBasicCredentials
 
+
+
+load_dotenv()
 security = HTTPBasic()
 
-ADMIN_USERNAME = os.getenv("ADMIN_USERNAME", "admin")
-ADMIN_PASSWORD = os.getenv("ADMIN_PASSWORD", "adminpass")
+ADMIN_USERNAME = os.getenv("ADMIN_USERNAME")
+ADMIN_PASSWORD = os.getenv("ADMIN_PASSWORD")
 
 def verify_credentials(credentials: HTTPBasicCredentials = Depends(security)):
     correct_username = credentials.username == ADMIN_USERNAME

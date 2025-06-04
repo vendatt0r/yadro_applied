@@ -1,8 +1,7 @@
 from fastapi import FastAPI
 from app.routers import public, private
 from app.database import create_db
-from dotenv import load_dotenv
-load_dotenv()
+
 app = FastAPI(title="URL Service")
 
 create_db()
